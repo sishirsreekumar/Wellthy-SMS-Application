@@ -10,7 +10,10 @@ app.use(express.urlencoded());
 
 app.use(express.json());
 
-
+app.get("/",(req,res)=>{
+    console.log("Logged to site")
+    res.send("Welcome")
+})
 
 app.post("/",(req,res)=>{
     res.send("Hello there")

@@ -52,7 +52,7 @@ app.post("/",(req,res)=>{
 
     if (call_status == "Call Back"){
         console.log("Inside 2nd if block ")
-        if (cb = 1){
+        if (cb == 1){
             var message = "Until we speak again, how about connecting over chat. Tap https://wellthy.page.link/XXEk to chat with your Health Coach & get interesting insights!"
             var campaign = "CallBack1"
         } else if (cb == 2) {

@@ -24,41 +24,41 @@ app.post("/",(req,res)=>{
     var rnr = req.body["lead_cf_number_of_times_rnr"]
     var cb = req.body["lead_cf_number_of_time_call_back"]
     var call_status = req.body["lead_cf_onboarding_remarks"]
-    if (call_status = "Ringing"){
+    if (call_status == "Ringing"){
         console.log("Inside 1st if block ")
-        if (rnr = 1){
+        if (rnr == 1){
             var message="You seem to be missing out on a lot of action. But I can help you catch up! Tap https://wellthy.page.link/XXEk to connect over Health Coach chat."
             var campaign = "RNR1"
-        } else if (rnr = 2) {
+        } else if (rnr == 2) {
             var message = "Basmati rice helps in keeping blood sugar under check. Need some more quick & easy tips? Your Health Coach can help! Tap https://wellthy.page.link/XXEk to chat with them now!"
             var campaign = "RNR2"
-        } else if (rnr=3) {
+        } else if (rnr ==3) {
             var message = "You're one step away from getting your meals and activities in order. Tap https://wellthy.page.link/XXEk to chat with your Health Coach now! "
             var campaign  = "RNR3"
-        } else if (rnr=4) {
+        } else if (rnr == 4) {
             var message = "Did you know cinnamon could help keep your blood sugar in control? Tap https://wellthy.page.link/XXEk to talk to your Health Coach for more tips!"
             var campaign = "RNR4"
-        } else if (rnr=5) {
+        } else if (rnr == 5) {
             var message = "Can't talk right now? Let's chat! Tap https://wellthy.page.link/XXEk to connect with your Health Coach on chat."
             var campaign = "RNR5"
-        } else if (rnr=6) {
+        } else if (rnr == 6) {
             var message = "Your health coach wants to talk to you about which exercises help improve blood sugar.Tap https://wellthy.page.link/XXEk to connect over chat."
             var campaign = "RNR6"
-        } else if (rnr=7) {
+        } else if (rnr == 7) {
             var message = "There's so much to know about managing your condition! Tap https://wellthy.page.link/XXEk to have a quick chat with your Health Coach. "
             var campaign = "RNR7"
         }
     }
 
-    if (call_status = "Call Back"){
+    if (call_status == "Call Back"){
         console.log("Inside 2nd if block ")
         if (cb = 1){
             var message = "Until we speak again, how about connecting over chat. Tap https://wellthy.page.link/XXEk to chat with your Health Coach & get interesting insights!"
             var campaign = "CallBack1"
-        } else if (cb = 2) {
+        } else if (cb == 2) {
             var message = "It's been a while since we last spoke. Until we speak again, how about a quick chat. Tap https://wellthy.page.link/XXEk to connect."
             var campaign = "CallBack2"
-        } else if (cb=3) {
+        } else if (cb == 3) {
             var message = "Tap https://wellthy.page.link/XXEk for tips from your Health Coach on managing your life with diet & exercise."
             var campaign  = "CallBack3"
         }

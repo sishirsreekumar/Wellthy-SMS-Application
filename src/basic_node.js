@@ -65,15 +65,16 @@ app.post("/",(req,res)=>{
                 var campaign  = "CallBack3"
             }
         }
+        var options = {
+            url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
+        
+        };
     }
     console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
     console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)
     console.log("CallBack Number ",req.body.lead_cf_number_of_time_call_back)
     console.log("Campaign: ", campaign)
-    var options = {
-        url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign,
     
-    };
     
     function callback(error, response, body) {
 

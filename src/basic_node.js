@@ -26,7 +26,7 @@ app.post("/",(req,res)=>{
     var call_status = req.body["lead_cf_onboarding_remarks"]
     var campaign = req.body["lead_cf_campaign"]
     if (campaign == "Accu-Chek Active strips pack for new users" || campaign == "Accu-Chek Active meter pack for new users"){
-        if (call_status == "Ringing"){
+        if (call_status == "Ringing" && rnr < 8){
             console.log("Inside 1st if block ")
             if (rnr == 1){
                 var message="You seem to be missing out on a lot of action. But I can help you catch up! Tap https://wellthy.page.link/XXEk to connect over Health Coach chat."
@@ -50,9 +50,13 @@ app.post("/",(req,res)=>{
                 var message = "There's so much to know about managing your condition! Tap https://wellthy.page.link/XXEk to have a quick chat with your Health Coach. "
                 var campaign = "RNR7"
             }
+            var options = {
+                url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
+            
+            };
         }
 
-        if (call_status == "Call Back"){
+        if (call_status == "Call Back" && cb < 4){
             console.log("Inside 2nd if block ")
             if (cb == 1){
                 var message = "Until we speak again, how about connecting over chat. Tap https://wellthy.page.link/XXEk to chat with your Health Coach & get interesting insights!"
@@ -64,11 +68,12 @@ app.post("/",(req,res)=>{
                 var message = "Tap https://wellthy.page.link/XXEk for tips from your Health Coach on managing your life with diet & exercise."
                 var campaign  = "CallBack3"
             }
+            var options = {
+                url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
+            
+            };
         }
-        var options = {
-            url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
         
-        };
     }
     console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
     console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)

@@ -21,8 +21,8 @@ app.post("/",(req,res)=>{
     //console.log("new body data",req.body.contact_mobile_number)
     var phone=req.body["contact_mobile_number"]
     //var n = req.body["lead_cf_number_of_times_called"]
-    var rnr = req.body["contact_cf_number_of_times_rnr"]
-    var cb = req.body["contact_cf_number_of_time_call_back"]
+    var rnr = req.body["contact_cf_number_of_times_hc_rnr"]
+    var cb = req.body["contact_cf_number_of_times_hc_call_back"]
     var call_status = req.body["contact_cf_call_type"]
     var campaign = req.body["contact_cf_campaign_name"]
     

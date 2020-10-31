@@ -18,13 +18,15 @@ app.get("/",(req,res)=>{
 app.post("/",(req,res)=>{
     res.send("Hello there")
     console.log(req.body)
-    console.log("new body data",req.body.lead_mobile_number)
-    var phone=req.body["lead_mobile_number"]
+    //console.log("new body data",req.body.contact_mobile_number)
+    var phone=req.body["contact_mobile_number"]
     //var n = req.body["lead_cf_number_of_times_called"]
-    var rnr = req.body["lead_cf_number_of_times_rnr"]
-    var cb = req.body["lead_cf_number_of_time_call_back"]
-    var call_status = req.body["lead_cf_onboarding_remarks"]
-    var campaign = req.body["lead_cf_campaign"]
+    var rnr = req.body["contact_cf_number_of_times_rnr"]
+    var cb = req.body["contact_cf_number_of_time_call_back"]
+    var call_status = req.body["contact_cf_call_type"]
+    var campaign = req.body["contact_cf_campaign_name"]
+    
+
     if (campaign == "Accu-Chek Active strips pack for new users" || campaign == "Accu-Chek Active meter pack for new users"){
         if (call_status == "Ringing" && rnr < 8){
             console.log("Inside 1st if block ")
@@ -75,10 +77,10 @@ app.post("/",(req,res)=>{
         }
         
     }
-    console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
-    console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)
-    console.log("CallBack Number ",req.body.lead_cf_number_of_time_call_back)
-    console.log("Campaign: ", campaign)
+    //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
+    //console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)
+    //console.log("CallBack Number ",req.body.lead_cf_number_of_time_call_back)
+    //console.log("Campaign: ", campaign)
     
     
     function callback(error, response, body) {

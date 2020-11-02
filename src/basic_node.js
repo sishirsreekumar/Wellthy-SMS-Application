@@ -22,7 +22,7 @@ app.post("/",(req,res)=>{
     var phone=req.body["lead_mobile_number"]
     //var n = req.body["lead_cf_number_of_times_called"]
     var rnr = req.body["lead_cf_number_of_times_rnr"]
-    var number_of_times_called = req.body["lead_cf_number_of_times_called"]
+    //var number_of_times_called = req.body["lead_cf_number_of_times_called"]
     var cb = req.body["lead_cf_number_of_times_call_back"]
     var call_status = req.body["lead_cf_onboarding_remarks"]
     var client= req.body["lead_cf_client"]
@@ -30,7 +30,7 @@ app.post("/",(req,res)=>{
     var policy_number = req.body["lead_cf_policy_number"]
     //var poilcy_name = req.body["lead_cf_campaign"]
 
-    if (client == "Manipal Cigna" && (call_status == "Ringing" || call_status == "Not Interested" ||  call_status == "Interested - No Consent for Test" || call_status == "Interested - Medical Test" )) {
+    if (client == "Manipal Cigna" && (call_status == "Ringing No Response" || call_status == "Not Interested" ||  call_status == "Interested - No Consent for Test" || call_status == "Interested - Medical Test" )) {
         if (call_status !== "Ringing"){
             if (call_status == "Not Interested"){
                 var message = "Welcome to the Proheal Program!: Dear Policy holder: "+policy_number+", Thanks for your value time over the call! Enjoy free quick tips on Lifestyle Management. Remember to watch this space!  Powered by Manipal Cigna | Wellthy Care"

@@ -19,30 +19,53 @@ app.post("/",(req,res)=>{
     res.send("Hello there")
     console.log(req.body)
     //console.log("new body data",req.body.contact_mobile_number)
-    var phone=req.body["contact_mobile_number"]
+    var phone=req.body["lead_mobile_number"]
     //var n = req.body["lead_cf_number_of_times_called"]
-    var rnr = req.body["contact_cf_number_of_times_hc_rnr"]
-    var cb = req.body["contact_cf_number_of_times_hc_call_back"]
-    var call_status = req.body["contact_cf_call_type"]
-    var campaign = req.body["contact_cf_campaign_name"]
-    
+    var rnr = req.body["lead_cf_number_of_times_rnr"]
+    var number_of_times_called = req.body["lead_cf_number_of_times_called"]
+    var cb = req.body["lead_cf_number_of_times_call_back"]
+    var call_status = req.body["lead_cf_onboarding_remarks"]
+    var client= req.body["lead_cf_client"]
+    var campaign = req.body["lead_cf_campaign"]
+    var policy_number = req.body["lead_cf_policy_number"]
+    //var poilcy_name = req.body["lead_cf_campaign"]
 
-    if (campaign == "Accu-Chek Active strips pack for new users" || campaign == "Accu-Chek Active meter pack for new users"){
-        if (call_status == "Ringing" && rnr < 8){
+    if (client == "Manipal Cigna" && (call_status == "Ringing" || call_status == "Not Interested" ||  call_status == "Interested - No Consent for Test" || call_status == "Interested - Medical Test" )) {
+        if (call_status !== "Ringing"){
+            if (call_status == "Not Interested"){
+                var message = "Welcome to the Proheal Program!: Dear Policy holder: "+policy_number+", Thanks for your value time over the call! Enjoy free quick tips on Lifestyle Management. Remember to watch this space!  Powered by Manipal Cigna | Wellthy Care"
+                var campaign = "NI1"
+            }
+            if (call_status == "Interested - No Consent for Test"){
+                var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let us know a suitable time when you wish to go for the medical test. Give us a ring on <customer care number>."
+
+                var campaign = "INC"
+            }
+            if (call_status == "Interested - Medical Test"){
+                var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let's start the journey towards a healthier and happier YOU! Powered by Manipal Cigna | Wellthy Care"
+                var campaign = "IMT"
+            }
+            var options = {
+                url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
+            
+            };
+        }
+        
+        if (call_status == "Ringing" && rnr < 5){
             console.log("Inside 1st if block ")
             if (rnr == 1){
-                var message="You seem to be missing out on a lot of action. But I can help you catch up! Tap https://wellthy.page.link/XXEk to connect over Health Coach chat."
+                var message="Welcome to the Proheal Program: Dear Policy holder :"+policy_number+" Let’s begin the journey 🧗 towards a healthier YOU 👍! Please tap <link> to know more about the Proheal Program! Powered by Manipal Cigna | Wellthy Care"
                 var campaign = "RNR1"
-            } else if (rnr == 2) {
-                var message = "Basmati rice helps in keeping blood sugar under check. Need some more quick & easy tips? Your Health Coach can help! Tap https://wellthy.page.link/XXEk to chat with them now!"
+            } if (rnr == 2) {
+                var message = "Seems like you missed our call. That's okay! Give us a call on <customer support number>."
                 var campaign = "RNR2"
             } else if (rnr ==3) {
-                var message = "You're one step away from getting your meals and activities in order. Tap https://wellthy.page.link/XXEk to chat with your Health Coach now! "
+                var message = "Hi, I am <name of TS associated with Cigna program>. I will help you with activating the Proheal Program. Please block a suitable time <link> and I will call you. I promise it will not take more than 5 mins :)"
                 var campaign  = "RNR3"
             } else if (rnr == 4) {
-                var message = "Did you know cinnamon could help keep your blood sugar in control? Tap https://wellthy.page.link/XXEk to talk to your Health Coach for more tips!"
+                var message = "Did you see our email with Lifestyle Management tips? To continue with these tips and more information on better managing your health, ring us at <xxxxx>."
                 var campaign = "RNR4"
-            } else if (rnr == 5) {
+            } /*else if (rnr == 5) {
                 var message = "Can't talk right now? Let's chat! Tap https://wellthy.page.link/XXEk to connect with your Health Coach on chat."
                 var campaign = "RNR5"
             } else if (rnr == 6) {
@@ -51,13 +74,14 @@ app.post("/",(req,res)=>{
             } else if (rnr == 7) {
                 var message = "There's so much to know about managing your condition! Tap https://wellthy.page.link/XXEk to have a quick chat with your Health Coach. "
                 var campaign = "RNR7"
-            }
+            }*/
             var options = {
                 url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
             
             };
         }
 
+/* 
         if (call_status == "Call Back" && cb < 4){
             console.log("Inside 2nd if block ")
             if (cb == 1){
@@ -75,6 +99,7 @@ app.post("/",(req,res)=>{
             
             };
         }
+  */
         
     }
     //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)

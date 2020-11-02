@@ -31,9 +31,9 @@ app.post("/",(req,res)=>{
     //var poilcy_name = req.body["lead_cf_campaign"]
 
     if (client == "Manipal Cigna" && (call_status == "Ringing No Response" || call_status == "Not Interested" ||  call_status == "Interested - No Consent for Test" || call_status == "Interested - Medical Test" )) {
-        console.log("Inside 2nd if block ")
+        //console.log("Inside 2nd if block ")
         if (call_status !== "Ringing No Response"){
-            console.log("Inside 3rd if block ")
+           // console.log("Inside 3rd if block ")
             if (call_status == "Not Interested"){
                 var message = "Welcome to the Proheal Program!: Dear Policy holder: "+policy_number+", Thanks for your value time over the call! Enjoy free quick tips on Lifestyle Management. Remember to watch this space!  Powered by Manipal Cigna | Wellthy Care"
                 var campaign = "NI1"
@@ -54,7 +54,7 @@ app.post("/",(req,res)=>{
         }
         
         if (call_status == "Ringing No Response" && rnr < 5){
-            console.log("Inside 1st if block ")
+            //console.log("Inside 1st if block ")
             if (rnr == 1){
                 var message="Welcome to the Proheal Program: Dear Policy holder :"+policy_number+" Let’s begin the journey 🧗 towards a healthier YOU 👍! Please tap <link> to know more about the Proheal Program! Powered by Manipal Cigna | Wellthy Care"
                 var campaign = "RNR1"

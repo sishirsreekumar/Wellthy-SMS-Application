@@ -24,7 +24,7 @@ app.post("/",(req,res)=>{
     //var n = req.body["lead_cf_number_of_times_called"]
     var rnr = req.body["lead_cf_number_of_times_rnr"]
     //var number_of_times_called = req.body["lead_cf_number_of_times_called"]
-    var cb = req.body["lead_cf_number_of_times_call_back"]
+    var cb = req.body["lead_cf_number_of_time_call_back"]
     var call_status = req.body["lead_cf_onboarding_remarks"]
     var client= req.body["lead_cf_client"]
     var campaign = req.body["lead_cf_campaign"]
@@ -33,6 +33,7 @@ app.post("/",(req,res)=>{
 
     if (client == "Manipal Cigna" && (call_status == "Ringing No Response" || call_status == "Not Interested" ||  call_status == "Interested - No Consent for Test" || call_status == "Interested - Valid Medical Test" || call_status == "Interested - Call Back" || call_status == "Interested - Medical Test Apnt" )) {
         console.log("Inside Main if block ")
+        console.log("Call Status: "+call_status+" client: "+client+" call back nos: "+cb+" rnr: "+rnr+" Name: "+name+" Policy number: "+policy_number)
         if (call_status !== "Ringing No Response" && call_status !== "Interested - Call Back"){
             console.log("Inside No RNR and No CB if block ")
             if (call_status == "Not Interested"){
@@ -125,9 +126,7 @@ app.post("/",(req,res)=>{
             }
             request(options, callback)
             console.log("End of RNR if block ")
-        }
-
- 
+        } 
         if (call_status == "Interested - Call Back" && cb < 6){
             console.log("Inside call back if block ")
             if (cb == 1){

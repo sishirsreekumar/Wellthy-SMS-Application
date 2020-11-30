@@ -45,7 +45,13 @@ app.post("/",(req,res)=>{
             }
             if (call_status == "Interested - No Consent for Test"){
                 var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let us know a suitable time when you wish to go for the medical test. Give us a ring on <02249668867>. Powered by Manipal Cigna | Wellthy Care"
-                var campaign = "INC"
+                var campaign = "INC1"
+                var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
+                
+                };
+                var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the <link> to document your consent for us to proceed for your medical tests!!"
+                var campaign = "INC2"
                 var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
                 

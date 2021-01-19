@@ -22,144 +22,116 @@ app.post("/",(req,res)=>{
     var phone=req.body["lead_mobile_number"]
     var name = req.body["lead_first_name"]
     //var n = req.body["lead_cf_number_of_times_called"]
-    var rnr = req.body["lead_cf_number_of_times_rnr"]
+    //var rnr = req.body["lead_cf_number_of_times_rnr"]
     //var number_of_times_called = req.body["lead_cf_number_of_times_called"]
-    var cb = req.body["lead_cf_number_of_time_call_back"]
-    var call_status = req.body["lead_cf_onboarding_remarks"]
-    var client= req.body["lead_cf_client"]
-    var campaign = req.body["lead_cf_campaign"]
+    //var cb = req.body["lead_cf_number_of_time_call_back"]
+    //var int_nc = req.body["lead_cf_number_of_time_interested_no_consent"]
+    //var call_status = req.body["lead_cf_onboarding_remarks"]
+    //var client= req.body["lead_cf_client"]
+    //var campaign = req.body["lead_cf_campaign"]
     var policy_number = req.body["lead_cf_policy_number"]
+    var message_type = req.body["lead_cf_cigna_message_type"]
     //var poilcy_name = req.body["lead_cf_campaign"]
-
-    if (client == "Manipal Cigna" && (call_status == "Ringing No Response" || call_status == "Not Interested" ||  call_status == "Interested - No Consent for Test" || call_status == "Interested - Valid Medical Test" || call_status == "Interested - Call Back" || call_status == "Interested - Medical Test Apnt" )) {
-        console.log("Inside Main if block ")
-        console.log("Call Status: "+call_status+" client: "+client+" call back nos: "+cb+" rnr: "+rnr+" Name: "+name+" Policy number: "+policy_number)
-        if (call_status !== "Ringing No Response" && call_status !== "Interested - Call Back"){
-            console.log("Inside No RNR and No CB if block ")
-            if (call_status == "Not Interested"){
-                var message = "Welcome to the Proheal Program!: Dear Policy holder: "+policy_number+", Thanks for your value time over the call! Enjoy free quick tips on Lifestyle Management. Remember to watch this space!  Powered by Manipal Cigna | Wellthy Care"
-                var campaign = "NI1"
-                var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-                
+    if ( message_type == "Welcome Message - General" ) {
+        var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
+        var campaign = "CIGNA-WELCOME"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
-            }
-            if (call_status == "Interested - No Consent for Test"){
-                var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let us know a suitable time when you wish to go for the medical test. Give us a ring on <02249668867>. Powered by Manipal Cigna | Wellthy Care"
-                var campaign = "INC1"
-                var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-                
+    }
+    if ( message_type == "Welcome Message - (Do not consent 1)" ) {
+        var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let us know a suitable time when you wish to go for the medical test. Give us a ring on 02249422122. Powered by Manipal Cigna"
+        var campaign = "CIGNA-WELCOME-DNC-1"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
-                var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the <link> to document your consent for us to proceed for your medical tests!!"
-                var campaign = "INC2"
-                var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-                
+    }
+    if ( message_type == "Welcome Message - (Do not consent 2)" ) {
+        var message= "Greetings from the Proheal Program! We care for you. All necessary medical tests can be done in the safety of your home. Let us know if you have made up your mind. Give us a ring on 02249422122. Powered by Manipal Cigna."
+        var campaign = "CIGNA-WELCOME-DNC-2"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
-            }
-            if (call_status == "Interested - Valid Medical Test"){
-                var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let's start the journey towards a healthier and happier YOU! Powered by Manipal Cigna | Wellthy Care"
-                var campaign = "IMT1"
-                var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-                
+    }
+    if ( message_type == "Consent form" ) {
+        var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the <link> to give your consent to proceed for your medical tests."
+        var campaign = "CIGNA-CONSENT"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
-                var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the <link> to document your consent for us to proceed for your medical tests!!"
-                var campaign = "IMT2"
-                var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-                
+    }
+    if ( message_type == "Follow-up on email" ) {
+        var message= "Did you see our email on the new Proheal program? To continue with these tips and more information on better managing your health, ring us at 02249422122."
+        var campaign = "CIGNA-EMAIL-FOLLOWUP"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
-            }
-            if (call_status == "Interested - Medical Test Apnt"){
-                var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let's start the journey towards a healthier and happier YOU! Powered by Manipal Cigna | Wellthy Care"
-                var campaign = "IMTA1"
-                var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-                
+    }
+    if ( message_type == "Telegram App download link" ) {
+        var message= "Hey "+name+", Download the telegram app from http://onelink.to/w53azg and enjoy the free counselling from your personalized Health Coach of Proheal Program."
+        var campaign = "CIGNA-TELEGRAM-LINK"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
-                var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the <link> to document your consent for us to proceed for your medical tests!!"
-                var campaign = "IMTA2"
-                var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-                
+    }
+    if ( message_type == "Enrollment steps" ) {
+        var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the <https://t.me/ManipalCignaBot> 2. Send us a ‘Hi’ with your name and phone number."
+        var campaign = "CIGNA-ENROLLMENT"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
-            }
-            console.log("End of No RNR and No CB if block ")
-        }
-        
-        if (call_status == "Ringing No Response" && rnr < 5){
-            console.log("Inside RNR if block ")
-            if (rnr == 1){
-                var message="Welcome to the Proheal Program: Dear Policy holder :"+policy_number+" Let’s begin the journey 🧗 towards a healthier YOU 👍! Please tap https://bit.ly/3mzLY6N to know more about the Proheal Program! Powered by Manipal Cigna | Wellthy Care"
-                var campaign = "RNR1"
-            } if (rnr == 2) {
-                var message = "Seems like you missed our call. That's okay! Give us a call on <02249668867>."
-                var campaign = "RNR2"
-            } else if (rnr ==3) {
-                var message = "Hi, I am <name of TS associated with Cigna program>. I will help you with activating the Proheal Program. Please block a suitable time  and I will call you. I promise it will not take more than 5 mins :)"
-                var campaign  = "RNR3"
-            } else if (rnr == 4) {
-                var message = "Did you see our email with Lifestyle Management tips? To continue with these tips and more information on better managing your health, ring us at <02249668867>."
-                var campaign = "RNR4"
-            } /*else if (rnr == 5) {
-                var message = "Can't talk right now? Let's chat! Tap https://wellthy.page.link/XXEk to connect with your Health Coach on chat."
-                var campaign = "RNR5"
-            } else if (rnr == 6) {
-                var message = "Your health coach wants to talk to you about which exercises help improve blood sugar.Tap https://wellthy.page.link/XXEk to connect over chat."
-                var campaign = "RNR6"
-            } else if (rnr == 7) {
-                var message = "There's so much to know about managing your condition! Tap https://wellthy.page.link/XXEk to have a quick chat with your Health Coach. "
-                var campaign = "RNR7"
-            }*/
-            var options = {
-                url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-            
-            }
-            request(options, callback)
-            console.log("End of RNR if block ")
-        } 
-        if (call_status == "Interested - Call Back" && cb < 6){
-            console.log("Inside call back if block ")
-            if (cb == 1){
-                var message = "Welcome to the Proheal Program: Dear Policy holder :"+policy_number+" Let’s begin the journey 🧗 towards a healthier YOU 👍! Please tap https://bit.ly/3mzLY6N to know more about the Proheal Program! Powered by Manipal Cigna | Wellthy Care"
-                var campaign = "CallBack1"
-            } else if (cb == 2) {
-                var message = "Seems like you missed our call. That's okay! Give us a call on <02249668867>."
-                var campaign = "CallBack2"
-            } else if (cb == 3) {
-                var message = "Hi, I am <name of TS associated with Cigna program>. I will help you with activating the Proheal Program. Please block a suitable time <link> and I will call you. I promise it will not take more than 5 mins :)"
-                var campaign  = "CallBack3"
-            } else if (cb == 4) {
-                var message = "Did you see our email with Lifestyle Management tips? To continue with these tips and more information on better managing your health, ring us at <02249668867>."
-                var campaign  = "CallBack4"
-            } else if (cb == 5) {
-                var message = "Seems like you missed our call. That's okay! Give us a call on <02249668867>."
-                var campaign  = "CallBack5"
-            }
-            var options = {
-                url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&campaign="+campaign
-            
-            }
-            request(options, callback)
-            console.log("End of CB if block ")
-        }
-        console.log("End of Main if block ")
+    }
+    if ( message_type == "Feedback Form" ) {
+        var message= "Hey there! Help us make the program better for you! Let us know about your experience here https://forms.gle/aniefA3sCcyxsSB78."
+        var campaign = "CIGNA-ENROLLMENT"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                }
+                request(options, callback)
+    }
+    if ( message_type == "Tip 1" ) {
+        var message= "Did you know that a 5-min walk every 2 hours will add up to 20-30 mins/day? To know more about such lifestyle management hacks, click <https://bit.ly/3mzLY6N >."
+        var campaign = "CIGNA-TIP1"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                }
+                request(options, callback)
+    }
+    if ( message_type == "Tip 2" ) {
+        var message= "Manage your condition purely with a smart diet and regular exercise. Get started with your health management journey today! Click https://bit.ly/3mzLY6N."
+        var campaign = "CIGNA-TIP2"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                }
+                request(options, callback)
+    }
+    if ( message_type == "Tip 3" ) {
+        var message= "Tip of the day: A glass of methi dalchini water every day helps manage blood sugar. Get daily hacks to manage your health <https://bit.ly/3mzLY6N >!"
+        var campaign = "CIGNA-TIP3"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                }
+                request(options, callback)
+    }
+    if ( message_type == "Missed Call" ) {
+        var message= "Seems like you missed our call. That's okay! Give us a call on 02249422122."
+        var campaign = "CIGNA-MISSEDCALL"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                }
+                request(options, callback)
     }
     //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
     //console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)
     //console.log("CallBack Number ",req.body.lead_cf_number_of_time_call_back)
     //console.log("Campaign: ", campaign)
-    
-    
     function callback(error, response, body) {
 
         if(error){
@@ -170,12 +142,7 @@ app.post("/",(req,res)=>{
             console.log(body);
         }
     }
-    
-    
-
-
-
-})
+ })
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port)

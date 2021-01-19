@@ -33,19 +33,20 @@ app.post("/",(req,res)=>{
     var message_type = req.body["lead_cf_cigna_message_type"]
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
-    if ( message_type == "Welcome Message - General" ) {
-        var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
-        var campaign = "CIGNA-WELCOME"
-        var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
-                }
-                request(options, callback)
-    }
     if ( message_type == "Welcome Message - (Do not consent 1)" ) {
         var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let us know a suitable time when you wish to go for the medical test. Give us a ring on 02249422122. Powered by Manipal Cigna"
         var campaign = "CIGNA-WELCOME-DNC-1"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                }
+                request(options, callback)
+    }
+    if ( message_type == "Welcome Message - General" ) {
+        var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
+        //var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
+        var campaign = "CIGNA-WELCOME"
+        var options = {
+            url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
     }

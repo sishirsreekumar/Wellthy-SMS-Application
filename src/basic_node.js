@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000
 
 
 // Parse JSON bodies (as sent by API clients)
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/",(req,res)=>{
@@ -32,6 +32,7 @@ app.post("/",(req,res)=>{
     var policy_number = req.body["lead_cf_policy_number"]
     var message_type = req.body["lead_cf_cigna_message_type"]
     //var poilcy_name = req.body["lead_cf_campaign"]
+    //console.log("Campaign: ", campaign)
     if ( message_type == "Welcome Message - General" ) {
         var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
         var campaign = "CIGNA-WELCOME"

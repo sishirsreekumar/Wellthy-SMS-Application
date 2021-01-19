@@ -42,7 +42,7 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     if ( message_type == "Welcome Message - General" ) {
-        var message = "Dear Policy holder: "+policy_number+", Let us begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
+        var message = "Dear Policy holder: "+policy_number+", Let\'s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
         //var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
         var campaign = "CIGNA-WELCOME"
         var options = {

@@ -34,7 +34,7 @@ app.post("/",(req,res)=>{
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {
-        var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the <https://t.me/ManipalCignaBot> 2. Send us a \'Hi\' with your name and phone number."
+        var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the https://t.me/ManipalCignaBot 2. Send us a \'Hi\' with your name and phone number."
         var campaign = "CIGNA-ENROLLMENT"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
@@ -42,7 +42,7 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     if ( message_type == "Welcome Message - General" ) {
-        var message = "Dear Policy holder: "+policy_number+", Let\'s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
+        var message = "Dear Policy holder: "+policy_number+", Let\'s begin the journey towards a healthier YOU. Please tap https://bit.ly/35Zpcj2 to know about the Proheal Program! By Manipal Cigna."
         //var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
         var campaign = "CIGNA-WELCOME"
         var options = {
@@ -68,7 +68,7 @@ app.post("/",(req,res)=>{
     }
     
     if ( message_type == "Consent form" ) {
-        var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the <link> to give your consent to proceed for your medical tests."
+        var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the https://bit.ly/2XYQmCd to give your consent to proceed for your medical tests."
         var campaign = "CIGNA-CONSENT"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
@@ -101,7 +101,7 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     if ( message_type == "Tip 1" ) {
-        var message= "Did you know that a 5-min walk every 2 hours will add up to 20-30 mins/day? To know more about such lifestyle management hacks, click <https://bit.ly/3mzLY6N >."
+        var message= "Did you know that a 5-min walk every 2 hours will add up to 20-30 mins/day? To know more about such lifestyle management hacks, click https://bit.ly/35Zpcj2."
         var campaign = "CIGNA-TIP1"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
@@ -109,7 +109,7 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     if ( message_type == "Tip 2" ) {
-        var message= "Manage your condition purely with a smart diet and regular exercise. Get started with your health management journey today! Click https://bit.ly/3mzLY6N."
+        var message= "Manage your condition purely with a smart diet and regular exercise. Get started with your health management journey today! Click https://bit.ly/35Zpcj2."
         var campaign = "CIGNA-TIP2"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
@@ -117,7 +117,7 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     if ( message_type == "Tip 3" ) {
-        var message= "Tip of the day: A glass of methi dalchini water every day helps manage blood sugar. Get daily hacks to manage your health <https://bit.ly/3mzLY6N >!"
+        var message= "Tip of the day: A glass of methi dalchini water every day helps manage blood sugar. Get daily hacks to manage your health https://bit.ly/35Zpcj2!"
         var campaign = "CIGNA-TIP3"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign

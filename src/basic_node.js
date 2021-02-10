@@ -100,10 +100,10 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     if ( message_type == "Feedback Form" ) {
-        var message= "Hey there! Help us make the program better for you! Let us know about your experience here https://forms.gle/aniefA3sCcyxsSB78."
+        var message= "Hey there! Help us make the program better for you! Let us know about your experience here https://forms.gle/aniefA3sCcyxsSB78. ManipalCigna"
         var campaign = "CIGNA-ENROLLMENT"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback)
     }

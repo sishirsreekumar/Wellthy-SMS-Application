@@ -16,11 +16,12 @@ app.get("/",(req,res)=>{
 })
 
 app.post("/",(req,res)=>{
-    res.send("Hello there")
-    console.log(req.body)
+    //res.send("Hello there")
+    //console.log(req.body)
     //console.log("new body data",req.body.contact_mobile_number)
-    var phone=req.body["lead_mobile_number"]
-    var name = req.body["lead_first_name"]
+    if(typeof req.body["contact_mobile_number"] == 'undefined'){
+        var phone=req.body["lead_mobile_number"]
+        var name = req.body["lead_first_name"]
     //var n = req.body["lead_cf_number_of_times_called"]
     //var rnr = req.body["lead_cf_number_of_times_rnr"]
     //var number_of_times_called = req.body["lead_cf_number_of_times_called"]
@@ -29,8 +30,14 @@ app.post("/",(req,res)=>{
     //var call_status = req.body["lead_cf_onboarding_remarks"]
     //var client= req.body["lead_cf_client"]
     //var campaign = req.body["lead_cf_campaign"]
-    var policy_number = req.body["lead_cf_policy_number"]
-    var message_type = req.body["lead_cf_cigna_message_type"]
+        var policy_number = req.body["lead_cf_policy_number"]
+        var message_type = req.body["lead_cf_cigna_message_type"]
+    } else {
+        var phone=req.body["contact_mobile_number"]
+        var name = req.body["contact_first_name"]
+        var policy_number = req.body["contact_cf_policy_number"]
+        var message_type = req.body["contact_cf_cigna_message_type"]
+    }
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {

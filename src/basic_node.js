@@ -19,8 +19,8 @@ app.post("/",(req,res)=>{
     //res.send("Hello there")
     //console.log(req.body)
     //console.log("new body data",req.body.contact_mobile_number)
-    if(typeof req.body["contact_mobile_number"] == 'undefined'){
-        var phone=req.body["lead_mobile_number"]
+    if(typeof req.body["contact_cf_patients_mobile_number__cigna"] == 'undefined'){
+        var phone=req.body["lead_cf_patients_mobile_number__cigna"]
         var name = req.body["lead_first_name"]
     //var n = req.body["lead_cf_number_of_times_called"]
     //var rnr = req.body["lead_cf_number_of_times_rnr"]
@@ -33,7 +33,7 @@ app.post("/",(req,res)=>{
         var policy_number = req.body["lead_cf_policy_number"]
         var message_type = req.body["lead_cf_cigna_message_type"]
     } else {
-        var phone=req.body["contact_mobile_number"]
+        var phone=req.body["contact_cf_patients_mobile_number__cigna"]
         var name = req.body["contact_first_name"]
         var policy_number = req.body["contact_cf_policy_number"]
         var message_type = req.body["contact_cf_cigna_message_type"]

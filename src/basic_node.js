@@ -58,7 +58,7 @@ app.post("/",(req,res)=>{
                 }
                 request(options, callback)
     }
-    else if ( message_type == "Welcome Message - (Do not consent 1)" ) {
+    /*else if ( message_type == "Welcome Message - (Do not consent 1)" ) {
         var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", Let us know what time is most convenient for you to book a medical test. We're just a call away ! 02249422122. Powered by Manipal Cigna"
         var campaign = "CIGNA-WELCOME-DNC-1"
         var options = {
@@ -74,7 +74,7 @@ app.post("/",(req,res)=>{
                 }
                 request(options, callback)
     }
-    
+    */
     else if ( message_type == "Consent form" ) {
         var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the https://bit.ly/2XYQmCd to give your consent to proceed for your medical tests.ManipalCigna"
         var campaign = "CIGNA-CONSENT"
@@ -115,6 +115,7 @@ app.post("/",(req,res)=>{
                 }
                 request(options, callback)
     }
+    /*
     else if ( message_type == "Tip 1" ) {
         var message= "Did you know that 5 mins of walking every 2 hours will add up to 20-30 mins / day ? To learn more such lifestyle management hacks, click https://bit.ly/35Zpcj2. ManipalCigna."
         var campaign = "CIGNA-TIP1"
@@ -139,7 +140,7 @@ app.post("/",(req,res)=>{
                 }
                 request(options, callback)
     }
-    
+    */
     else if ( message_type == "Missed Call" ) {
         var message= "Seems like you missed our call. That's okay! Give us a call on 02249422122. ManipalCigna"
         var campaign = "CIGNA-MISSEDCALL"

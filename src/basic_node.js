@@ -59,10 +59,10 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     else if ( message_type == "Welcome Message - (Do not consent 1)" ) {
-        var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", Let us know what time is most convenient for you to book a medical test. We're just a call away ! 02249422122. Powered by Manipal Cigna"
+        var message= "Welcome Aboard. Dear Policyholder "+policy_number+", Let us know what time is most convenient for you to book a medical test. We're just a call away ! 02249422122. Powered by Manipal Cigna"
         var campaign = "CIGNA-WELCOME-DNC-1"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback)
     }
@@ -70,7 +70,7 @@ app.post("/",(req,res)=>{
         var message= "Greetings, from the ProHeal Program team! Your health and safety is our utmost priority, hence we're offering at home medical tests for you. Let us know how we can help, we're just one call away ! 02249422122. Powered by Manipal Cigna."
         var campaign = "CIGNA-WELCOME-DNC-2"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback)
     }
@@ -120,7 +120,7 @@ app.post("/",(req,res)=>{
         var message= "Did you know that 5 mins of walking every 2 hours will add up to 20-30 mins / day ? To learn more such lifestyle management hacks, click https://bit.ly/35Zpcj2. ManipalCigna."
         var campaign = "CIGNA-TIP1"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback)
     }
@@ -128,7 +128,7 @@ app.post("/",(req,res)=>{
         var message= "Take control of your health, with well-balanced diet and regular exercise. Get started with your health management journey today ! Click https://bit.ly/35Zpcj2. ManipalCigna."
         var campaign = "CIGNA-TIP2"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback)
     }
@@ -136,7 +136,7 @@ app.post("/",(req,res)=>{
         var message= "Want to learn more about the ProHeal Program ? Click https://bit.ly/35Zpcj2!. ManipalCigna."
         var campaign = "CIGNA-TIP3"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback)
     }

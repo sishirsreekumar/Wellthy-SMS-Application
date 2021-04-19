@@ -58,8 +58,8 @@ app.post("/",(req,res)=>{
                 }
                 request(options, callback)
     }
-    /*else if ( message_type == "Welcome Message - (Do not consent 1)" ) {
-        var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", let us know a suitable time when you wish to go for the medical test. Give us a ring on 02249422122. Powered by Manipal Cigna"
+    else if ( message_type == "Welcome Message - (Do not consent 1)" ) {
+        var message= "Welcome Aboard!!  Dear Policy holder: "+policy_number+", Let us know what time is most convenient for you to book a medical test. We're just a call away ! 02249422122. Powered by Manipal Cigna"
         var campaign = "CIGNA-WELCOME-DNC-1"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
@@ -67,14 +67,14 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     else if ( message_type == "Welcome Message - (Do not consent 2)" ) {
-        var message= "Greetings from the Proheal Program! We care for you. All necessary medical tests can be done in the safety of your home. Let us know else if you have made up your mind. Give us a ring on 02249422122. Powered by Manipal Cigna."
+        var message= "Greetings, from the ProHeal Program team! Your health and safety is our utmost priority, hence we're offering at home medical tests for you. Let us know how we can help, we're just one call away ! 02249422122. Powered by Manipal Cigna."
         var campaign = "CIGNA-WELCOME-DNC-2"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
     }
-    */
+    
     else if ( message_type == "Consent form" ) {
         var message= "Hey "+name+", thanks for confirming to be a part of Proheal Program. Kindly click on the https://bit.ly/2XYQmCd to give your consent to proceed for your medical tests.ManipalCigna"
         var campaign = "CIGNA-CONSENT"
@@ -115,8 +115,8 @@ app.post("/",(req,res)=>{
                 }
                 request(options, callback)
     }
-    /*else if ( message_type == "Tip 1" ) {
-        var message= "Did you know that a 5-min walk every 2 hours will add up to 20-30 mins/day? To know more about such lelse ifestyle management hacks, click https://bit.ly/35Zpcj2."
+    else if ( message_type == "Tip 1" ) {
+        var message= "Did you know that 5 mins of walking every 2 hours will add up to 20-30 mins / day ? To learn more such lifestyle management hacks, click https://bit.ly/35Zpcj2. ManipalCigna."
         var campaign = "CIGNA-TIP1"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
@@ -124,7 +124,7 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     else if ( message_type == "Tip 2" ) {
-        var message= "Manage your condition purely with a smart diet and regular exercise. Get started with your health management journey today! Click https://bit.ly/35Zpcj2."
+        var message= "Take control of your health, with well-balanced diet and regular exercise. Get started with your health management journey today ! Click https://bit.ly/35Zpcj2. ManipalCigna."
         var campaign = "CIGNA-TIP2"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
@@ -132,14 +132,14 @@ app.post("/",(req,res)=>{
                 request(options, callback)
     }
     else if ( message_type == "Tip 3" ) {
-        var message= "Tip of the day: A glass of methi dalchini water every day helps manage blood sugar. Get daily hacks to manage your health https://bit.ly/35Zpcj2!"
+        var message= "Want to learn more about the ProHeal Program ? Click https://bit.ly/35Zpcj2!. ManipalCigna."
         var campaign = "CIGNA-TIP3"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=Welthy&custom="+campaign
                 }
                 request(options, callback)
     }
-    */
+    
     else if ( message_type == "Missed Call" ) {
         var message= "Seems like you missed our call. That's okay! Give us a call on 02249422122. ManipalCigna"
         var campaign = "CIGNA-MISSEDCALL"

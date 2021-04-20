@@ -47,7 +47,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Welcome Message - General" ) {
         var message = "Dear Policy holder: "+policy_number+", Let\'s begin the journey towards a healthier YOU. Please tap https://bit.ly/35Zpcj2 to know about the Proheal Program! By ManipalCigna."
@@ -56,7 +56,7 @@ app.post("/",(req,res)=>{
         var options = {
             url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Welcome Message - (Do not consent 1)" ) {
         var message= "Welcome Aboard. Dear Policyholder "+policy_number+", Let us know what time is most convenient for you to book a medical test. We're just a call away ! 02249422122. Powered by Manipal Cigna"
@@ -64,7 +64,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Welcome Message - (Do not consent 2)" ) {
         var message= "Greetings, from the ProHeal Program team! Your health and safety is our utmost priority, hence we're offering at home medical tests for you. Let us know how we can help, we're just one call away ! 02249422122. Powered by Manipal Cigna."
@@ -72,7 +72,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     
     else if ( message_type == "Consent form" ) {
@@ -81,7 +81,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Follow-up on email" ) {
         var message= "Did you see our email on the new Proheal program? To continue with these tips and more information on better managing your health, ring us at 02249422122. ManipalCigna"
@@ -89,7 +89,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Telegram App download link" ) {
         var message= "Hey "+name+", Download the telegram app from http://onelink.to/w53azg and enjoy the free counselling from your personalized Health Coach of Proheal Program.ManipalCigna"
@@ -97,7 +97,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Telegram App download link 2" ) {
         var message= "Hey "+name+", Download the telegram app from http://onelink.to/w53azg and enjoy the free counselling from your personalized Health Coach of Proheal Program. Watch out the space for next 2 steps. ManipalCigna."
@@ -105,7 +105,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Feedback Form" ) {
         var message= "Hey there! Help us make the program better for you! Let us know about your experience here https://forms.gle/aniefA3sCcyxsSB78. ManipalCigna"
@@ -113,7 +113,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     
     else if ( message_type == "Tip 1" ) {
@@ -122,7 +122,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Tip 2" ) {
         var message= "Take control of your health, with well-balanced diet and regular exercise. Get started with your health management journey today ! Click https://bit.ly/35Zpcj2. ManipalCigna."
@@ -130,7 +130,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     else if ( message_type == "Tip 3" ) {
         var message= "Want to learn more about the ProHeal Program ? Click https://bit.ly/35Zpcj2!. ManipalCigna."
@@ -138,7 +138,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     
     else if ( message_type == "Missed Call" ) {
@@ -147,7 +147,7 @@ app.post("/",(req,res)=>{
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
-                request(options, callback)
+                request(options, callback);
     }
     //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
     //console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)

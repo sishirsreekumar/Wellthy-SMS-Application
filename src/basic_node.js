@@ -1,6 +1,6 @@
 var express = require('express');
 var request = require('request');
-var performance = require('performance');
+const performance = require('perf_hooks').performance;
 
 var app =express()
 var t0 = performance.now()

@@ -41,9 +41,10 @@ app.post("/leads",(req,res)=>{
         var policy_number = req.body["contact_cf_policy_number"]
         var message_type = req.body["contact_cf_cigna_message_type"]
     }*/
-    var t1 = performance.now()
-    console.log("Time t0:" + t1)
-    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
+    //res.send("Leads info received")
+    //var t1 = performance.now()
+    //console.log("Time t0:" + t1)
+    //console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {
@@ -168,6 +169,7 @@ app.post("/leads",(req,res)=>{
             console.log(body);
             var t2 = performance.now()
             console.log("Call to doSomething took " + (t2 - t0) + " milliseconds.")
+            res.status(200).end()
         }
     }
  })

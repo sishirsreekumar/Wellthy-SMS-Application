@@ -1,12 +1,12 @@
 var express = require('express');
 var request = require('request');
-const performance = require('perf_hooks').performance;
+//const performance = require('perf_hooks').performance;
 
 var app =express()
-var t0 = performance.now()
+//var t0 = performance.now()
 // Process.env.port stores the port Heroku uses to listen 3000 is the default port
 const port = process.env.PORT || 3000
-console.log("Time t0:" + t0)
+//console.log("Time t0:" + t0)
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.urlencoded({ extended: true }));
@@ -164,13 +164,13 @@ app.post("/leads",(req,res)=>{
 
         if(error){
             console.log("ERRROR ",error)
-            response.send("ERROR")
+            res.send("ERROR")
         }
         else if (!error && response.statusCode == 200) {
             console.log(body);
-            var t2 = performance.now()
-            console.log("Call to doSomething took " + (t2 - t0) + " milliseconds.")
-            response.status(200).end()
+            //var t2 = performance.now()
+            //console.log("Call to doSomething took " + (t2 - t0) + " milliseconds.")
+            res.status(200).end()
         }
     }
  })
@@ -200,8 +200,8 @@ app.post("/leads",(req,res)=>{
         var policy_number = req.body["contact_cf_policy_number"]
         var message_type = req.body["contact_cf_cigna_message_type"]
     //}
-    var t1 = performance.now()
-    console.log("Call to doSomething contacts took " + (t1 - t0) + " milliseconds.")
+    //var t1 = performance.now()
+    //console.log("Call to doSomething contacts took " + (t1 - t0) + " milliseconds.")
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {
@@ -321,13 +321,13 @@ app.post("/leads",(req,res)=>{
 
         if(error){
             console.log("ERRROR ",error)
-            response.send("ERROR")
+            res.send("ERROR")
         }
         else if (!error && response.statusCode == 200) {
             console.log(body);
-            var t2 = performance.now()
-            console.log("Call to doSomething took " + (t2 - t0) + " milliseconds.")
-            response.status(200).end()
+            //var t2 = performance.now()
+            //console.log("Call to doSomething took " + (t2 - t0) + " milliseconds.")
+            res.status(200).end()
         }
     }
  })

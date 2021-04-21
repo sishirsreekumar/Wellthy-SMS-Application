@@ -1,6 +1,6 @@
-var express = require('express')
-var request = require('request')
-var performance = require('performance')
+var express = require('express');
+var request = require('request');
+var performance = require('performance');
 
 var app =express()
 var t0 = performance.now()

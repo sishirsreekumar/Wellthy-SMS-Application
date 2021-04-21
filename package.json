@@ -5,14 +5,13 @@
   "main": "basic_node.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
-      "start":"node src/basic_node.js"
-    
+    "start": "node src/basic_node.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "performance": "^1.4.0",
     "request": "^2.88.2"
   }
 }

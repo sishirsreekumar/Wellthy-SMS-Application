@@ -2,6 +2,7 @@ var express = require('express')
 var request = require('request');
 
 var app =express()
+var t0 = performance.now()
 // Process.env.port stores the port Heroku uses to listen 3000 is the default port
 const port = process.env.PORT || 3000
 
@@ -39,6 +40,8 @@ app.post("/",(req,res)=>{
         var policy_number = req.body["contact_cf_policy_number"]
         var message_type = req.body["contact_cf_cigna_message_type"]
     }
+    var t1 = performance.now()
+    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {
@@ -161,6 +164,8 @@ app.post("/",(req,res)=>{
         }
         else if (!error && response.statusCode == 200) {
             console.log(body);
+            var t2 = performance.now()
+            console.log("Call to doSomething took " + (t2 - t0) + " milliseconds.")
         }
     }
  })

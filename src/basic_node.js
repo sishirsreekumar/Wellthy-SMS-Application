@@ -6,7 +6,7 @@ var app =express()
 var t0 = performance.now()
 // Process.env.port stores the port Heroku uses to listen 3000 is the default port
 const port = process.env.PORT || 3000
-
+console.log("Time t0:" + t0)
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.urlencoded({ extended: true }));
@@ -42,6 +42,7 @@ app.post("/leads",(req,res)=>{
         var message_type = req.body["contact_cf_cigna_message_type"]
     }*/
     var t1 = performance.now()
+    console.log("Time t0:" + t1)
     console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)

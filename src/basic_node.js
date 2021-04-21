@@ -316,16 +316,18 @@ app.post("/leads",(req,res)=>{
     //console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)
     //console.log("CallBack Number ",req.body.lead_cf_number_of_time_call_back)
     //console.log("Campaign: ", campaign)
+    res.status(200).end()
     function callback(error, response, body) {
 
         if(error){
             console.log("ERRROR ",error)
-            res.send("ERROR")
+            response.send("ERROR")
         }
         else if (!error && response.statusCode == 200) {
             console.log(body);
             var t2 = performance.now()
             console.log("Call to doSomething took " + (t2 - t0) + " milliseconds.")
+            response.status(200).end()
         }
     }
  })

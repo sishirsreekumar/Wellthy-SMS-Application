@@ -155,6 +155,7 @@ app.post("/leads",(req,res)=>{
                 }
                 request(options, callback);
     }
+    res.status(200).end()
     //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
     //console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)
     //console.log("CallBack Number ",req.body.lead_cf_number_of_time_call_back)

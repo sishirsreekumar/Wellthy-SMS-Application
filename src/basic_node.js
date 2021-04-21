@@ -139,8 +139,16 @@ app.post("/leads",(req,res)=>{
                 request(options, callback);
     }
     else if ( message_type == "Tip 3" ) {
-        var message= "Want to learn more about the ProHeal Program ? Click https://bit.ly/35Zpcj2!. ManipalCigna."
+        var message= "TIP of the day: Drinking a glass of Methi seeds and Dalchini water every day can help control blood sugar. Get daily hacks to stay healthy Click https://bit.ly/35Zpcj2! ManipalCigna."
         var campaign = "CIGNA-TIP3"
+        var options = {
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
+                }
+                request(options, callback);
+    }
+    else if ( message_type == "Program details" ) {
+        var message= "Want to learn more about the ProHeal Program ? Click https://bit.ly/35Zpcj2!. ManipalCigna."
+        var campaign = "CIGNA-PD"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
@@ -212,7 +220,7 @@ app.post("/leads",(req,res)=>{
                 }
                 request(options, callback);
     }
-    else if ( message_type == "Welcome Message - General" ) {
+    /*else if ( message_type == "Welcome Message - General" ) {
         var message = "Dear Policy holder: "+policy_number+", Let\'s begin the journey towards a healthier YOU. Please tap https://bit.ly/35Zpcj2 to know about the Proheal Program! By ManipalCigna."
         //var message = "Dear Policy holder: "+policy_number+", Let’s begin the journey towards a healthier YOU. Please tap https://bit.ly/3mzLY6N to know about the Proheal Program! By Manipal Cigna."
         var campaign = "CIGNA-WELCOME"
@@ -253,7 +261,7 @@ app.post("/leads",(req,res)=>{
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback);
-    }
+    }*/
     else if ( message_type == "Telegram App download link" ) {
         var message= "Hey "+name+", Download the telegram app from http://onelink.to/w53azg and enjoy the free counselling from your personalized Health Coach of Proheal Program.ManipalCigna"
         var campaign = "CIGNA-TELEGRAM-LINK"
@@ -278,7 +286,7 @@ app.post("/leads",(req,res)=>{
                 }
                 request(options, callback);
     }
-    
+    /*
     else if ( message_type == "Tip 1" ) {
         var message= "Did you know that 5 mins of walking every 2 hours will add up to 20-30 mins / day ? To learn more such lifestyle management hacks, click https://bit.ly/35Zpcj2. ManipalCigna."
         var campaign = "CIGNA-TIP1"
@@ -311,7 +319,7 @@ app.post("/leads",(req,res)=>{
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback);
-    }
+    }*/
     //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
     //console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)
     //console.log("CallBack Number ",req.body.lead_cf_number_of_time_call_back)

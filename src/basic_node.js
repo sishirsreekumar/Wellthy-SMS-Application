@@ -48,7 +48,7 @@ app.post("/leads",(req,res)=>{
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {
-        var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the https://t.me/ManipalCignaBot 2. Send us a \'Hi\' with your name and phone number.ManipalCigna"
+        var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the https://t.me/Prohealbot 2. Send us a \'Hi\' with your name and phone number.ManipalCigna"
         var campaign = "CIGNA-ENROLLMENT"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
@@ -213,7 +213,7 @@ app.post("/leads",(req,res)=>{
     //var poilcy_name = req.body["lead_cf_campaign"]
     //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {
-        var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the https://t.me/ManipalCignaBot 2. Send us a \'Hi\' with your name and phone number.ManipalCigna"
+        var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the https://t.me/Prohealbot 2. Send us a \'Hi\' with your name and phone number.ManipalCigna"
         var campaign = "CIGNA-ENROLLMENT"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign

@@ -279,10 +279,10 @@ app.post("/leads",(req,res)=>{
                 request(options, callback);
     }
     else if ( message_type == "Feedback Form" ) {
-        var message= "Hey there! Help us make the program better for you! Let us know about your experience here https://forms.gle/aniefA3sCcyxsSB78. ManipalCigna"
+        var message= "Feedbacks help us improve. We at Wellthy would like to know your response to the Proheal program. Click on the link and submit your feedback https://forms.gle/Jq13XeaiRMBqBYMF6. Thank you.Team Wellthy"
         var campaign = "CIGNA-FEEDBACK"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=WELTHY&custom="+campaign
                 }
                 request(options, callback);
     }

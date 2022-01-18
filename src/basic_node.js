@@ -288,10 +288,10 @@ app.post("/leads",(req,res)=>{
     }
 
     else if ( message_type == "2nd Lab Test" ) {
-        var message= "Congratulations ! Time for your 2nd medical test as part of the Manipal Cigna Pro Heal program! Connect with your Health Coach on Telegram or give us a missed call on +912249422122 to book the test."
+        var message= "Congratulations ! Time for your 2nd medical test as part of the Manipal Cigna Pro heal program ! Connect with your health coach on telegram or give us a missed call on +912249422122 to book the test."
         var campaign = "CIGNA-LABTEST-2"
         var options = {
-                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
+                    url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=WELTHY&custom="+campaign
                 }
                 request(options, callback);
     }

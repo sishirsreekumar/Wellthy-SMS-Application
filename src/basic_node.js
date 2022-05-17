@@ -24,6 +24,7 @@ app.post("/leads",(req,res)=>{
     //if(typeof req.body["contact_cf_patients_mobile_number__cigna"] == 'undefined'){
     var phone=req.body["lead_cf_patients_mobile_number__cigna"]
     var name = req.body["lead_first_name"]
+    var therapy = req.body["lead_cf_therapy"]
     //var n = req.body["lead_cf_number_of_times_called"]
     //var rnr = req.body["lead_cf_number_of_times_rnr"]
     //var number_of_times_called = req.body["lead_cf_number_of_times_called"]
@@ -160,6 +161,36 @@ app.post("/leads",(req,res)=>{
         var campaign = "CIGNA-MISSEDCALL"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
+                }
+                request(options, callback);
+    }
+    else if ( message_type == "Wellthy App download link - MCHI" ) {
+        switch (therapy) {
+            case "Type 2 Diabetes":
+              var link = "https://wellthy.page.link/949T";
+              break;
+            case "Asthma":
+                var link = "https://wellthy.page.link/3X6i";
+              break;
+            case "Hypertension":
+                var link = "https://wellthy.page.link/JTXY";
+                break;
+            case "Dyslipidemia":
+                var link = "https://wellthy.page.link/AZpF";
+                break;
+            case "Obesity":
+                var link = "https://wellthy.page.link/tecp";
+                break;
+            case "Wellness":
+                var link = "https://wellthy.page.link/68C5";
+                break;
+            default:
+                var link = "https://wellthy.page.link/68C5";
+        }
+        var message = "Dear Customer, ManipalCigna is glad to have you onboard! To avail sponsored Wellness benefit in your policy: "+policy_number+", click on the link "+link
+        var campaign = "CIGNA-MCHI-APP-DOWNLOAD"
+        var options = {
+            url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback);
     }

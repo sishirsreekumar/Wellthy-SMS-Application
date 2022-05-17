@@ -216,33 +216,11 @@ app.post("/leads",(req,res)=>{
 
 
  app.post("/contacts",(req,res)=>{
-    //res.send("Hello there")
-    //console.log(req.body)
-    //console.log("new body data",req.body.contact_mobile_number)
-    /*if(typeof req.body["contact_cf_patients_mobile_number__cigna"] == 'undefined'){
-        var phone=req.body["lead_cf_patients_mobile_number__cigna"]
-        var name = req.body["lead_first_name"]
-    //var n = req.body["lead_cf_number_of_times_called"]
-    //var rnr = req.body["lead_cf_number_of_times_rnr"]
-    //var number_of_times_called = req.body["lead_cf_number_of_times_called"]
-    //var cb = req.body["lead_cf_number_of_time_call_back"]
-    //var int_nc = req.body["lead_cf_number_of_time_interested_no_consent"]
-    //var call_status = req.body["lead_cf_onboarding_remarks"]
-    //dummy comment
-    //var client= req.body["lead_cf_client"]
-    //var campaign = req.body["lead_cf_campaign"]
-        var policy_number = req.body["lead_cf_policy_number"]
-        var message_type = req.body["lead_cf_cigna_message_type"]
-    } else {*/
         var phone=req.body["contact_cf_patients_mobile_number__cigna"]
         var name = req.body["contact_first_name"]
+        var therapy = req.body["contact_cf_program_type"]
         var policy_number = req.body["contact_cf_policy_number"]
         var message_type = req.body["contact_cf_cigna_message_type"]
-    //}
-    //var t1 = performance.now()
-    //console.log("Call to doSomething contacts took " + (t1 - t0) + " milliseconds.")
-    //var poilcy_name = req.body["lead_cf_campaign"]
-    //console.log("Campaign: ", campaign)
     if ( message_type == "Enrollment steps" ) {
         var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the https://t.me/Prohealbot 2. Send us a \'Hi\' with your name and phone number.ManipalCigna"
         var campaign = "CIGNA-ENROLLMENT"
@@ -323,6 +301,36 @@ app.post("/leads",(req,res)=>{
         var campaign = "CIGNA-LABTEST-2"
         var options = {
                     url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=WELTHY&custom="+campaign
+                }
+                request(options, callback);
+    }
+    else if ( message_type == "Wellthy App download link - MCHI" ) {
+        switch (therapy) {
+            case "Type 2 Diabetes":
+              var link = "https://wellthy.page.link/949T";
+              break;
+            case "Asthma":
+                var link = "https://wellthy.page.link/3X6i";
+              break;
+            case "Hypertension":
+                var link = "https://wellthy.page.link/JTXY";
+                break;
+            case "Dyslipidemia":
+                var link = "https://wellthy.page.link/AZpF";
+                break;
+            case "Obesity":
+                var link = "https://wellthy.page.link/tecp";
+                break;
+            case "Wellness":
+                var link = "https://wellthy.page.link/68C5";
+                break;
+            default:
+                var link = "https://wellthy.page.link/68C5";
+        }
+        var message = "Dear Customer, ManipalCigna is glad to have you onboard! To avail sponsored Wellness benefit in your policy: "+policy_number+", click on the link "+link
+        var campaign = "CIGNA-MCHI-APP-DOWNLOAD"
+        var options = {
+            url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback);
     }

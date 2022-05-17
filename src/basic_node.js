@@ -164,7 +164,7 @@ app.post("/leads",(req,res)=>{
                 }
                 request(options, callback);
     }
-    else if ( message_type == "Wellthy App download link - MCHI" ) {
+    /*else if ( message_type == "Wellthy App download link - MCHI" ) {
         switch (therapy) {
             case "Type 2 Diabetes":
               var link = "https://wellthy.page.link/949T";
@@ -193,7 +193,7 @@ app.post("/leads",(req,res)=>{
             url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback);
-    }
+    } */
     res.status(200).end()
     //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)
     //console.log("RNR Number: ",req.body.lead_cf_number_of_times_rnr)

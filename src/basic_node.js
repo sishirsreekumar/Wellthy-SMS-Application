@@ -193,6 +193,8 @@ app.post("/leads",(req,res)=>{
             url:"https://api-alerts.kaleyra.com/v4/?api_key=A3cab820f8de4a0f03fb3ea65e50b62a0&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
                 }
                 request(options, callback);
+
+                //Dummy
     } 
     res.status(200).end()
     //console.log("TO Remarks: ",req.body.lead_cf_onboarding_remarks)

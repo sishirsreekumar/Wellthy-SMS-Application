@@ -52,8 +52,20 @@ app.post("/leads",(req,res)=>{
         var message= "2 simple steps to enroll in Manipal Cigna Proheal program. 1. Click on the https://t.me/Prohealbot 2. Send us a \'Hi\' with your name and phone number.ManipalCigna"
         var campaign = "CIGNA-ENROLLMENT"
         var options = {
-                    url:"https://api.kaleyra.io/v4/?api_key=Aac3f51e37cb3476da51d4a6bdedfdf36&method=sms&message="+message+"&to="+phone+"&sender=MCHICL&custom="+campaign
-                }
+            url:"https://api.kaleyra.io/v1/HXIN1746473909IN/messages",
+            body: JSON.stringify({
+                "sender": "MCHICL",
+                "template_id": "1107161200071456532",
+                "body": message,
+                "type": "TXN",
+                "to": (phone && String(phone).length <= 10 ? '+91' + phone: phone)
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "api-key": "A6976da09fe692a230698e542c5f251bb"
+            },
+            method: 'POST'
+        }
                 request(options, callback);
     }
     else if ( message_type == "Welcome Message - General" ) {

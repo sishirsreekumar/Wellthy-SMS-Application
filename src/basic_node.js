@@ -511,7 +511,7 @@ app.post("/leads",(req,res)=>{
         var options = {
             url:"https://api.kaleyra.io/v1/HXIN1746473909IN/messages",
             body: JSON.stringify({
-                "sender": "MCHICL",
+                "sender": "WELTHY",
                 "template_id": "1107163583879333380",
                 "body": message,
                 "type": "TXN",
@@ -532,7 +532,7 @@ app.post("/leads",(req,res)=>{
         var options = {
             url:"https://api.kaleyra.io/v1/HXIN1746473909IN/messages",
             body: JSON.stringify({
-                "sender": "MCHICL",
+                "sender": "WELTHY",
                 "template_id": "1107164161854946689",
                 "body": message,
                 "type": "TXN",
